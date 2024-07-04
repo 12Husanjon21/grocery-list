@@ -6,7 +6,7 @@ import Content from "./components/Content";
 import { useEffect, useState } from "react";
 
 function App() {
-  const api_url = "https://json-server-api-lycv.onrender.com/posts";
+  const api_url = "https://json-server-api-lycv.onrender.com";
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
@@ -34,8 +34,10 @@ function App() {
     }
     setTimeout(() => {
       fetchItems();
-    }, 1000);
+    }, 500);
   }, [])
+
+
 
   async function addItem() {
     const id = String(Date.now());
@@ -123,7 +125,7 @@ function App() {
       <SearchItem search={search} setSearch={setSearch}/>
       <main>
         {fetchError && <p style={{color: 'red'}}>{fetchError}</p>}
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <span class="loader"></span>}
         {!isLoading && !fetchError && <Content
          items={items.filter((item) => item.item.toLowerCase().includes(search.toLowerCase()))}
          handleCheck={handleCheck}
