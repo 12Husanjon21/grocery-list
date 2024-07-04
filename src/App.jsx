@@ -6,7 +6,7 @@ import Content from "./components/Content";
 import { useEffect, useState } from "react";
 
 function App() {
-  const api_url = "https://json-server-api-lycv.onrender.com";
+  const api_url = "https://json-server-api-lycv.onrender.com/posts";
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
